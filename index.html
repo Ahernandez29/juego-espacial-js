@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Invasión Espacial — Web</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app" role="application" aria-label="Invasion Espacial Web">
+    <header>
+      <img src="images/ovni-alienigena.png" alt="icono" />
+      <h1>Invasión Espacial — Web (Login + Juego)</h1>
+    </header>
+
+    <div class="content">
+      <!-- LOGIN -->
+      <div class="login" id="loginBox" aria-hidden="false">
+        <h2>Iniciar sesión</h2>
+        <label for="user">Usuario</label>
+        <input id="user" autocomplete="username" placeholder="argen" value="argen" />
+        <label for="pass">Contraseña</label>
+        <input id="pass" type="password" autocomplete="current-password" placeholder="1234" value="1234" />
+        <button id="loginBtn">Entrar</button>
+        <small>Credenciales por defecto: <strong>argen / 1234</strong>. Cambia en el código si quieres otro comportamiento.</small>
+        <p class="msg" id="loginMsg" style="display:none;margin-top:8px;"></p>
+      </div>
+
+      <!-- ÁREA DEL JUEGO -->
+      <div class="game-area" id="gameArea" aria-hidden="true">
+        <canvas id="gameCanvas" width="800" height="600" role="img" aria-label="Canvas del juego"></canvas>
+        <div class="hud">
+          <div>Score: <span id="scoreView">0</span></div>
+          <div class="btns">
+            <div class="btn" id="restartBtn">Reiniciar</div>
+            <div class="btn" id="logoutBtn">Cerrar sesión</div>
+          </div>
+        </div>
+        <small style="color:#ccc">Controles: ← → (flechas) / Espacio para disparar.</small>
+      </div>
+    </div>
+
+    <footer>
+      Hecho con ❤️ — Traducción Pygame → JavaScript. Usa un servidor local si el audio no carga.
+    </footer>
+  </div>
+
+  <!-- script -->
+  <script src="game.js" defer></script>
+</body>
+</html>
