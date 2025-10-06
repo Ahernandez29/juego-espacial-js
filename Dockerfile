@@ -2,7 +2,7 @@
 FROM nginx:alpine
 
 # Metadata opcional sobre el mantenedor
-LABEL maintainer="Argenis <20240916@itla.edu.com>"
+LABEL maintainer="Argenis 20240916@itla.edu.do"
 
 # El contenido del proyecto (index.html, css, js, images, musics) se copiará
 # a la carpeta que nginx sirve por defecto: /usr/share/nginx/html
