@@ -1,15 +1,15 @@
-# Use una imagen ligera de nginx que ya sirve archivos estáticos
+# Dockerfile (opción A)
 FROM nginx:alpine
 
-# Metadata opcional sobre el mantenedor
-LABEL maintainer="Argenis 20240916@itla.edu.do"
+# instalar git
+RUN apk add --no-cache git
 
-# El contenido del proyecto (index.html, css, js, images, musics) se copiará
-# a la carpeta que nginx sirve por defecto: /usr/share/nginx/html
-COPY . /usr/share/nginx/html
+# trabajar en el dir donde nginx sirve
+WORKDIR /usr/share/nginx/html
 
-# Exponemos el puerto 80 (documentativo)
+# borrar los archivos default y luego clonar en el directorio actual
+RUN rm -rf /usr/share/nginx/html/* \
+ && git clone https://github.com/Ahernandez29/juego-espacial-js.git .
+
 EXPOSE 80
-
-# Comando por defecto para ejecutar nginx en primer plano
 CMD ["nginx", "-g", "daemon off;"]
